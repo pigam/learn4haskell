@@ -630,7 +630,9 @@ Write a function that takes elements of a list only on even positions.
 >>> takeEven [2, 1, 3, 5, 4]
 [2,3,4]
 -}
-takeEven = error "takeEven: Not implemented!"
+takeEven [] = []
+takeEven [x] = [x]
+takeEven (x:_:xs)= x: takeEven xs
 
 {- |
 =🛡= Higher-order functions
