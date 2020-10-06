@@ -338,11 +338,13 @@ from it!
 ghci> :l src/Chapter2.hs
 -}
 subList :: Int -> Int -> [a] -> [a]
-subList m n l 
+subList _ _ [] = []
+subList m n (x:xs) 
   | m < 0 || n < 0 = []
-  | m >= n = []
-  | m >= length l = []
-  | otherwise = take (n - m + 1) (drop m l)
+  | m > n = []
+  | m == n = [x]
+  | m >= length (x:xs) = []
+  | otherwise = take (n - m + 1) (drop m (x:xs))
 
 {- |
 =⚔️= Task 4
@@ -861,6 +863,9 @@ list.
 🕯 HINT: Use the 'cycle' function
 -}
 rotate :: Int -> [a] -> [a]
+rotate n _
+  | n < 0 = []
+
 rotate n a = take (length a) $ drop n $ cycle a
 
 {- |
@@ -877,7 +882,10 @@ and reverses it.
   function, but in this task, you need to implement it manually. No
   cheating!
 -}
-rewind = error "rewind: Not Implemented!"
+rewind :: [a] -> [a]
+rewind [] = []
+rewind (x: xs) = rewind xs ++ [x]
+
 
 
 {-
