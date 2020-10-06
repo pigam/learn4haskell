@@ -338,7 +338,11 @@ from it!
 ghci> :l src/Chapter2.hs
 -}
 subList :: Int -> Int -> [a] -> [a]
-subList = error "subList: Not implemented!"
+subList m n l 
+  | m < 0 || n < 0 = []
+  | m >= n = []
+  | m >= length l = []
+  | otherwise = take (n - m + 1) (drop m l)
 
 {- |
 =⚔️= Task 4
