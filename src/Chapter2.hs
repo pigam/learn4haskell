@@ -630,6 +630,7 @@ Write a function that takes elements of a list only on even positions.
 >>> takeEven [2, 1, 3, 5, 4]
 [2,3,4]
 -}
+takeEven :: [a] -> [a]
 takeEven [] = []
 takeEven [x] = [x]
 takeEven (x:_:xs)= x: takeEven xs
@@ -739,7 +740,7 @@ value of the element itself
 🕯 HINT: Use combination of 'map' and 'replicate'
 -}
 smartReplicate :: [Int] -> [Int]
-smartReplicate l = error "smartReplicate: Not implemented!"
+smartReplicate l = concat ( map (\i -> replicate i i) l)
 
 {- |
 =⚔️= Task 9
