@@ -753,7 +753,11 @@ the list with only those lists that contain a passed element.
 
 🕯 HINT: Use the 'elem' function to check whether an element belongs to a list
 -}
-contains = error "contains: Not implemented!"
+contains :: (Foldable t1, Eq t2) => t2 -> [t1 t2] -> [t1 t2]
+contains _ [] = []
+contains e (l:ls) 
+  | elem e l = l : contains e ls
+  | otherwise = contains e ls 
 
 
 {- |
