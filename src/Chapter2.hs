@@ -860,7 +860,8 @@ list.
 
 🕯 HINT: Use the 'cycle' function
 -}
-rotate = error "rotate: Not implemented!"
+rotate :: Int -> [a] -> [a]
+rotate n a = take (length a) $ drop n $ cycle a
 
 {- |
 =💣= Task 12*
