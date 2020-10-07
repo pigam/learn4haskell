@@ -438,7 +438,7 @@ Implement the function that takes an integer value and returns the next 'Int'.
   function body with the proper implementation.
 -}
 next :: Int -> Int
-next = (+1)
+next = (+ 1)
 
 {- |
 After you've implemented the function (or even during the implementation), you
@@ -480,7 +480,7 @@ Implement a function that returns the last digit of a given number.
 -}
 -- DON'T FORGET TO SPECIFY THE TYPE IN HERE
 lastDigit :: Integral a => a -> a
-lastDigit n = (abs n) `mod` 10
+lastDigit n = abs n `mod` 10
 
 
 {- |
@@ -638,7 +638,7 @@ specifying complex expressions.
 
 sumLast2 :: Integral c => c -> c
 sumLast2 n = lastDigit n + sndLastDigit n where
-  sndLastDigit n = lastDigit  ((abs n) `div` 10)
+  sndLastDigit n = lastDigit (abs n `div` 10)
 
 
 {- |
